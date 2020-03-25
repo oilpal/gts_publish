@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <title>GTS-로그인</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+  <!-- bootstrap -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+  
+  
+  
+  <!-- jui grid -->
+  <link rel="stylesheet" href="framework/jui-grid-master/jui-grid.classic.css" />
+  <script src="https://cdn.jsdelivr.net/npm/juijs@2.2.1-es6/dist/jui-core.js"></script>
+  <script src="framework/jui-grid-master/jui-grid.js"></script>
+  
+  <!-- custom -->
+  <link rel="stylesheet" href="custom4.css">
+
+
+</head>
+<body class="jui">
+
+
+<!-- HEADER Start -->
+<div class="wrap_header">
+    <div class="sw_submenu"><img src="img/icon_sw_submenu.png" alt=""></div>
+    <div class="logo">GTS</div>
+    <div class="nav" id="pc_head">
+        <div class="custom_nav" id="custom_nav">
+            <ul class="nav" id="flip">
+				<li class="flip_li_1"><a href="#">고객관리</a></li>
+				<li class="flip_li_2"><a href="#">일정관리</a></li>
+                <li class="flip_li_3"><a href="#">정산관리</a></li>
+				<li class="flip_li_4"><a href="#">직원관리</a></li>
+				<li class="flip_li_5"><a href="#">센터관리</a></li>
+				<li class="flip_li_6"><a href="#">기준정보</a></li>
+    		</ul>
+
+        </div>
+        
+        <!-- NAV Start -->
+        <div class="nav_submenu" id="nav_submenu">
+            <div class="inner_box nav_inner_box">
+                <div class="submenu_basic" id="submenu_1">
+                    <ul>
+                        <li><a href="#">고객정보</a></li>
+                        <li><a href="#">고객별 서비스</a></li>
+                    </ul>
+                </div>
+                <div class="submenu_basic" id="submenu_2">
+                    <ul>
+                        <li><a href="#">월별일정</a></li>
+                        <li><a href="#">주별일정</a></li>
+                    </ul>
+                </div>
+                <div class="submenu_basic" id="submenu_3">
+                    <ul>
+                        <li><a href="#">월별 손익계산</a></li>
+                        <li><a href="#">고객 청구현황</a></li>
+                        <li><a href="#">본인부담금 수금</a></li>
+                        <li><a href="#">공단계좌입금현황</a></li>
+                    </ul>
+                </div>
+                <div class="submenu_basic" id="submenu_4">
+                    <ul>
+                        <li><a href="#">직원 정보</a></li>
+                        <li><a href="#">급여 관리</a></li>
+                    </ul>
+                </div>
+                <div class="submenu_basic" id="submenu_5">
+                    <ul>
+                        <li><a href="#">센터정보</a></li>
+                        <li><a href="#">공지사항</a></li>
+                        <li><a href="#">일일이용자현황</a></li>
+                        <li><a href="#">시스템마감 관리</a></li>
+                    </ul>
+                </div>
+                <div class="submenu_basic" id="submenu_6">
+                    <ul>
+                        <li><a href="#">임직원 관리</a></li>
+                        <li><a href="#">서비스품목 관리</a></li>
+                        <li><a href="#">요양비용 관리</a></li>
+                        <li><a href="#">오류품목체크</a></li>
+                        <li><a href="#">직원시급일괄변경</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!--상단슬라이드서브메뉴-->
+        <script> 
+            $(document).ready(function(){
+                $("#flip").mouseenter(function(){
+                    $("#nav_submenu").slideDown("fast");
+                });
+            });
+            </script>
+            <script> 
+            $(document).ready(function(){
+                $("#pc_head").mouseleave(function(){
+                    $("#nav_submenu").slideUp("slow");
+                });
+            });	
+            </script>
+            
+            
+            
+            <!-- 상단메인메뉴 STYLE 관련 -->
+            <script>
+            $(document).ready(function(){
+                $("#submenu_1").on("mouseenter",function(){
+                    $(".flip_li_1 a").addClass("nav_on");
+                });
+            });
+            $(document).ready(function(){
+                $("#submenu_1").on("mouseleave",function(){
+                    $(".flip_li_1 a").removeClass("nav_on");
+                });
+            });
+            
+            $(document).ready(function(){
+                $("#submenu_2").on("mouseenter",function(){
+                    $(".flip_li_2 a").addClass("nav_on");
+                });
+            });
+            $(document).ready(function(){
+                $("#submenu_2").on("mouseleave",function(){
+                    $(".flip_li_2 a").removeClass("nav_on");
+                });
+            });
+            
+            $(document).ready(function(){
+                $("#submenu_3").on("mouseenter",function(){
+                    $(".flip_li_3 a").addClass("nav_on");
+                });
+            });
+            $(document).ready(function(){
+                $("#submenu_3").on("mouseleave",function(){
+                    $(".flip_li_3 a").removeClass("nav_on");
+                });
+            });
+            
+            $(document).ready(function(){
+                $("#submenu_4").on("mouseenter",function(){
+                    $(".flip_li_4 a").addClass("nav_on");
+                });
+            });
+            $(document).ready(function(){
+                $("#submenu_4").on("mouseleave",function(){
+                    $(".flip_li_4 a").removeClass("nav_on");
+                });
+            });
+            
+            $(document).ready(function(){
+                $("#submenu_5").on("mouseenter",function(){
+                    $(".flip_li_5 a").addClass("nav_on");
+                });
+            });
+            $(document).ready(function(){
+                $("#submenu_5").on("mouseleave",function(){
+                    $(".flip_li_5 a").removeClass("nav_on");
+                });
+            });
+
+            $(document).ready(function(){
+                $("#submenu_6").on("mouseenter",function(){
+                    $(".flip_li_6 a").addClass("nav_on");
+                });
+            });
+            $(document).ready(function(){
+                $("#submenu_6").on("mouseleave",function(){
+                    $(".flip_li_6 a").removeClass("nav_on");
+                });
+            });
+            
+            </script>
+        <!-- NAV End -->
+        
+    </div>
+    
+    <div class="app">
+        <ul>
+            <li class="app_message">마감이 2일 남았습니다.</li>
+            
+            <!-- 
+                bootstrap popvoer (마감처리 : title, 공지사항 : data-content 
+                이미지 사용 예시 : 
+                    - 공지가 없을경우 : icon_app_bell_off.png
+                    - 공지가 있을경우 : icon_app_bell_on.png
+            -->
+            <li class="app_bell"><a href="#" data-html="true" data-toggle="popover" data-trigger="hover" data-placement="bottom" title="<b>마감이 2일 남았습니다.</b>" data-content="<a href='#'>공지사항 2건이 있습니다.</a>"><img src="img/icon_app_bell_on.png" alt=""></a></li>
+
+            <li class="app_mypage"><a href="#" class="" data-toggle="tooltip" data-placement="bottom" title="로그아웃"><img src="img/icon_app_mypage.png" alt=""></a></li>
+        </ul>
+    </div>
+    <script>
+    //bootstrap tooltip script
+    $(document).ready(function(){
+        $('[data-toggle="tooltip"]').tooltip();   
+    });
+
+    //bootstrap popover script
+    $(document).ready(function(){
+      $('[data-toggle="popover"]').popover();   
+    });
+   </script>
+
+</div> 
+<!-- HEADER End -->
+
+
+
+
+
+
+<!-- CONTENTS Start -->
+<div class="wrap_content">
+    <div class="wrap_content_list">wrap_content_list</div>
+    <div class="wrap_content_info">
+        <div class="content_info">content_info</div>
+    </div>
+    
+</div>
+<!-- CONTENTS End -->
+
+
+
+
+
+<!-- COPYRIGHT Start -->
+<div class="wrap_copyright">
+    
+    <div class="copyright_logo">
+        <img src="img/logo_longlife.png" alt="">
+    </div>
+    
+    
+    <div class="copyright_companyinfo">
+        Copyright © 2016 롱라이프그린케어(주) inc. All right reserved.
+    </div>
+    
+</div>
+<!-- COPYRIGHT End -->
+
+
+
+
+
+
+
+</div>
+</body>
+</html>

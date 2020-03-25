@@ -1,0 +1,785 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <title>GTS-로그인</title>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="framework/bootstrap-4.4.1-dist/css/bootstrap.min.css">
+  <script src="framework/jquery-3.4.1/jquery.min.js"></script>
+  <script src="framework/bootstrap-4.4.1-dist/js/popper.min.js"></script>
+  <script src="framework/bootstrap-4.4.1-dist/js/bootstrap.min.js"></script>
+  
+  
+  
+  <!-- jui grid -->
+  <link rel="stylesheet" href="framework/jui-grid-master/jui-grid.classic.css" />
+  <script src="framework/jui-grid-master/jui-core.js"></script>
+  <script src="framework/jui-grid-master/jui-grid.js"></script>
+  
+  <!-- custom -->
+  <link rel="stylesheet" href="custom7.css">
+
+<script>
+    $( document ).ready( function() {
+        $( '#content_tab_2' ).hide();
+
+        $( '.content_tab_1' ).click( function() {
+            $( '#content_tab_1' ).show();
+            $( '#content_tab_2' ).hide();
+        } );
+        $( '.content_tab_2' ).click( function() {
+            $( '#content_tab_1' ).hide();
+            $( '#content_tab_2' ).show();
+        } );
+    } );
+</script>
+
+</head>
+<body class="jui">
+
+
+<!-- HEADER Start -->
+<div class="wrap_header">
+    <div class="sw_submenu"><img src="img/icon_sw_submenu.png" alt=""></div>
+    <div class="logo">GTS</div>
+    <div class="nav" id="pc_head">
+        <div class="custom_nav" id="custom_nav">
+            <ul class="nav" id="flip">
+				<li class="flip_li_1"><a href="#">고객관리</a></li>
+				<li class="flip_li_2"><a href="#">일정관리</a></li>
+                <li class="flip_li_3"><a href="#">정산관리</a></li>
+				<li class="flip_li_4"><a href="#">직원관리</a></li>
+				<li class="flip_li_5"><a href="#">센터관리</a></li>
+				<li class="flip_li_6"><a href="#">기준정보</a></li>
+    		</ul>
+
+        </div>
+        
+        <!-- NAV Start -->
+        <div class="nav_submenu" id="nav_submenu">
+            <div class="inner_box nav_inner_box">
+                <div class="submenu_basic" id="submenu_1">
+                    <ul>
+                        <li><a href="#">고객정보</a></li>
+                        <li><a href="#">고객별 서비스</a></li>
+                    </ul>
+                </div>
+                <div class="submenu_basic" id="submenu_2">
+                    <ul>
+                        <li><a href="#">월별일정</a></li>
+                        <li><a href="#">주별일정</a></li>
+                    </ul>
+                </div>
+                <div class="submenu_basic" id="submenu_3">
+                    <ul>
+                        <li><a href="#">월별 손익계산</a></li>
+                        <li><a href="#">고객 청구현황</a></li>
+                        <li><a href="#">본인부담금 수금</a></li>
+                        <li><a href="#">공단계좌입금현황</a></li>
+                    </ul>
+                </div>
+                <div class="submenu_basic" id="submenu_4">
+                    <ul>
+                        <li><a href="#">직원 정보</a></li>
+                        <li><a href="#">급여 관리</a></li>
+                    </ul>
+                </div>
+                <div class="submenu_basic" id="submenu_5">
+                    <ul>
+                        <li><a href="#">센터정보</a></li>
+                        <li><a href="#">공지사항</a></li>
+                        <li><a href="#">일일이용자현황</a></li>
+                        <li><a href="#">시스템마감 관리</a></li>
+                    </ul>
+                </div>
+                <div class="submenu_basic" id="submenu_6">
+                    <ul>
+                        <li><a href="#">임직원 관리</a></li>
+                        <li><a href="#">서비스품목 관리</a></li>
+                        <li><a href="#">요양비용 관리</a></li>
+                        <li><a href="#">오류품목체크</a></li>
+                        <li><a href="#">직원시급일괄변경</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!--상단슬라이드서브메뉴-->
+        <script> 
+        $(document).ready(function(){
+            $("#flip").mouseenter(function(){
+                $("#nav_submenu").slideDown("fast");
+            });
+        });
+        </script>
+        <script> 
+        $(document).ready(function(){
+            $("#pc_head").mouseleave(function(){
+                $("#nav_submenu").slideUp("slow");
+            });
+        });	
+        </script>
+            
+            
+            
+        <!-- 상단메인메뉴 STYLE 관련 -->
+        <script>
+        $(document).ready(function(){
+            $("#submenu_1").on("mouseenter",function(){
+                $(".flip_li_1 a").addClass("nav_on");
+            });
+        });
+        $(document).ready(function(){
+            $("#submenu_1").on("mouseleave",function(){
+                $(".flip_li_1 a").removeClass("nav_on");
+            });
+        });
+        
+        $(document).ready(function(){
+            $("#submenu_2").on("mouseenter",function(){
+                $(".flip_li_2 a").addClass("nav_on");
+            });
+        });
+        $(document).ready(function(){
+            $("#submenu_2").on("mouseleave",function(){
+                $(".flip_li_2 a").removeClass("nav_on");
+            });
+        });
+        
+        $(document).ready(function(){
+            $("#submenu_3").on("mouseenter",function(){
+                $(".flip_li_3 a").addClass("nav_on");
+            });
+        });
+        $(document).ready(function(){
+            $("#submenu_3").on("mouseleave",function(){
+                $(".flip_li_3 a").removeClass("nav_on");
+            });
+        });
+        
+        $(document).ready(function(){
+            $("#submenu_4").on("mouseenter",function(){
+                $(".flip_li_4 a").addClass("nav_on");
+            });
+        });
+        $(document).ready(function(){
+            $("#submenu_4").on("mouseleave",function(){
+                $(".flip_li_4 a").removeClass("nav_on");
+            });
+        });
+        
+        $(document).ready(function(){
+            $("#submenu_5").on("mouseenter",function(){
+                $(".flip_li_5 a").addClass("nav_on");
+            });
+        });
+        $(document).ready(function(){
+            $("#submenu_5").on("mouseleave",function(){
+                $(".flip_li_5 a").removeClass("nav_on");
+            });
+        });
+
+        $(document).ready(function(){
+            $("#submenu_6").on("mouseenter",function(){
+                $(".flip_li_6 a").addClass("nav_on");
+            });
+        });
+        $(document).ready(function(){
+            $("#submenu_6").on("mouseleave",function(){
+                $(".flip_li_6 a").removeClass("nav_on");
+            });
+        });
+        
+        </script>
+        <!-- NAV End -->
+        
+    </div>
+    
+    <div class="app">
+        <ul>
+            <li class="app_message">마감이 2일 남았습니다.</li>
+            
+            <!-- 
+                * 공지사항 아이콘, 마이페이지 아이콘 bootstrap popvoer 
+                  data-content 속성에 html로 코드 삽입
+
+                * 공지사항 아이콘 (bell) : 3일전일까지 알림 내용이 있을 경우 아이콘 이미지 변경 
+                    - 공지가 없을경우 : icon_app_bell_off.png
+                    - 공지가 있을경우 : icon_app_bell_on.png
+
+                * bootstrap popover document : https://getbootstrap.com/docs/4.4/components/popovers/
+            -->
+
+            <li class="app_bell"><a href="#" class="app_popover" data-html="true" data-toggle="popover" data-delay="200" data-animation="true"  data-placement="bottom" data-content="<div class='app_mypage_popover'><a href='#'>마감이 2일 남았습니다.</a></div><div class='app_mypage_popover'><a href='#'>공지사항 2건이 있습니다.</a></div>"><img src="img/icon_app_bell_on.png" alt=""></a></li>
+
+            <li class="app_mypage"><a href="#"  class="app_popover" data-html="true" data-delay="200" data-animation="true"  data-placement="bottom" data-content="<div class='app_mypage_popover'><a href='#'>로그아웃</a></div><div class='app_mypage_popover'><a href='#'>정보수정</a></div>"><img src="img/icon_app_mypage.png" alt=""></a></li>
+        </ul>
+    </div>
+
+    <script>
+    // popover hover 유지
+    $(".app_popover").popover({ trigger: "manual" , html: true, animation:false})
+    .on("mouseenter", function () {
+        var _this = this;
+        $(this).popover("show");
+        $(".popover").on("mouseleave", function () {
+            $(_this).popover('hide');
+        });
+    }).on("mouseleave", function () {
+        var _this = this;
+        setTimeout(function () {
+            if (!$(".popover:hover").length) {
+                $(_this).popover("hide");
+            }
+        }, 300);
+    });
+   </script>
+
+   
+
+</div> 
+<!-- HEADER End -->
+
+
+
+
+
+
+<!-- CONTENTS Start -->
+<div class="wrap_content">
+    <div class="wrap_content_list">
+
+        <!-- 검색영역 Start -->
+        <div class="wrap_search clearfix">
+            <div class="search">
+                <div class="search_box">
+                    <input type="text" value="이름검색" />
+                    <button type="submit" class="btn_search"></button>
+                </div>
+            </div>
+            <!-- 상세검색 오픈, 닫기 -->
+            <div class="search_more" data-toggle="collapse" href="#collapseSearchMore">
+                <div class="icon_search_more"><img src="img/icon_search_more.png" alt=""></div>
+                <div class="search_more_txt">상세검색</div>                
+            </div>
+        </div>
+
+        <!-- 상세검색 -->
+        <div class="wrap_search_more_detail collapse" id="collapseSearchMore">
+            <div class="wrap_search_more_arrow"><div class="box_search_more_arrow"><img src="img/search_more_arrow.png" alt=""></div>
+            </div>
+            <div class="box_search_more_detail">
+                <div class="basic_padding">
+                    <select class="select_default" style="width:100%;">
+                        <option selected>급여종류</option>
+                        <option>주야간보호</option>
+                        <option>방문요양</option>
+                        <option>방문목욕</option>
+                    </select>
+                </div>
+                <div class="basic_padding">
+                    <input type="text" class="input_default" style="width:97px;" value="2020-01-01" /><button type="button" class="btn_tp_1">달력</button> 
+                    ~
+                    <input type="text" class="input_default" style="width:97px;" value="2020-01-31" /><button type="button" class="btn_tp_1">달력</button>
+                </div>
+                <div class="basic_padding">
+                    <select class="select_default" style="width:100%;">
+                        <option selected>센터명</option>
+                        <option>센터명1</option>
+                        <option>센터명2</option>
+                    </select>
+                </div>
+                <div class="basic_padding" style="text-align: center;;">
+                    <button type="button" class="btn_cancel">검색</button>
+                </div>
+                <div class="close_search_more_detail">
+                    <a data-toggle="collapse" href="#collapseSearchMore"><img src="img/btn_search_more_top.png" alt=""></a>
+                </div> 
+            </div>
+        </div>
+        <!-- 검색영역 End -->
+
+
+        <!-- 타이틀 / 히스토리 / 기타통계영역 -->
+        <div class="wrap_title clearfix">
+            <div class="title">고객정보</div>
+            <div class="wrap_history clearfix">
+                <div class="history">고객관리 > 회원정보</div>
+                <div class="histroy_info">TOTAL : 20명</div>
+            </div>
+        </div>
+
+
+
+
+
+        <div class="wrap_member_list">
+            <!-- JUI Start -->
+            <div id="xtable_1" class="xtable scroll">
+                <table class="table simple headline hover">
+                    <thead>
+                    <tr>
+                        <th style="width: 10%;">No</th>
+                        <th style="width: 15%;">고객명</th>
+                        <th style="width: 15%;">생일</th>
+                        <th style="width: 10%;">차수</th>
+                        <th>안정잔여기간</th>
+                        <th style="width: 20%;">급여구분</th>
+                    </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+            
+            <script data-jui="#xtable_1" data-tpl="row" type="text/template">
+                <tr>
+                    <td><!= no !></td>
+                    <td><!= name !></td>
+                    <td><!= birth !></td>
+                    <td><!= order !></td>
+                    <td><!= date !></td>
+                    <td><!= pay !></td>
+                </tr>
+            </script>
+            <script>
+                jui.ready([ "grid.xtable" ], function(xtable) {
+                    xtable_1 = xtable("#xtable_1", {
+                        fields: [ "name", "age", "location" ],
+                        data: [
+                            { no: "1", name: "홍길동", birth: "2020.02.22", order: "5", date:"30일 남았습니다.", pay: "주야간보호"  },
+                            { no: "2", name: "홍길동", birth: "2020.02.22", order: "5", date:"30일 남았습니다.", pay: "주야간보호"  },
+                            { no: "3", name: "홍길동", birth: "2020.02.22", order: "5", date:"30일 남았습니다.", pay: "주야간보호"  },
+                            { no: "4", name: "홍길동", birth: "2020.02.22", order: "5", date:"30일 남았습니다.", pay: "주야간보호"  },
+                            { no: "5", name: "홍길동", birth: "2020.02.22", order: "5", date:"30일 남았습니다.", pay: "주야간보호"  },
+                            { no: "6", name: "홍길동", birth: "2020.02.22", order: "5", date:"30일 남았습니다.", pay: "주야간보호"  },
+                            { no: "7", name: "홍길동", birth: "2020.02.22", order: "5", date:"30일 남았습니다.", pay: "주야간보호"  },
+                            { no: "8", name: "홍길동", birth: "2020.02.22", order: "5", date:"30일 남았습니다.", pay: "주야간보호"  },
+                            { no: "9", name: "홍길동", birth: "2020.02.22", order: "5", date:"30일 남았습니다.", pay: "주야간보호"  },
+                            { no: "10", name: "홍길동", birth: "2020.02.22", order: "5", date:"30일 남았습니다.", pay: "주야간보호"  },
+                            { no: "11", name: "홍길동", birth: "2020.02.22", order: "5", date:"30일 남았습니다.", pay: "주야간보호"  },
+                            { no: "12", name: "홍길동", birth: "2020.02.22", order: "5", date:"30일 남았습니다.", pay: "주야간보호"  },
+                            { no: "13", name: "홍길동", birth: "2020.02.22", order: "5", date:"30일 남았습니다.", pay: "주야간보호"  },
+                            { no: "14", name: "홍길동", birth: "2020.02.22", order: "5", date:"30일 남았습니다.", pay: "주야간보호"  },
+                            { no: "15", name: "홍길동", birth: "2020.02.22", order: "5", date:"30일 남았습니다.", pay: "주야간보호"  },
+                            { no: "16", name: "홍길동", birth: "2020.02.22", order: "5", date:"30일 남았습니다.", pay: "주야간보호"  },
+                            { no: "17", name: "홍길동", birth: "2020.02.22", order: "5", date:"30일 남았습니다.", pay: "주야간보호"  },
+                            { no: "18", name: "홍길동", birth: "2020.02.22", order: "5", date:"30일 남았습니다.", pay: "주야간보호"  },
+                            { no: "19", name: "홍길동", birth: "2020.02.22", order: "5", date:"30일 남았습니다.", pay: "주야간보호"  },
+                            { no: "20", name: "홍길동", birth: "2020.02.22", order: "5", date:"30일 남았습니다.", pay: "주야간보호"  },
+                            { no: "7", name: "홍길동", birth: "2020.02.22", order: "5", date:"30일 남았습니다.", pay: "주야간보호"  },
+                            { no: "8", name: "홍길동", birth: "2020.02.22", order: "5", date:"30일 남았습니다.", pay: "주야간보호"  },
+                            { no: "9", name: "홍길동", birth: "2020.02.22", order: "5", date:"30일 남았습니다.", pay: "주야간보호"  },
+                            { no: "10", name: "홍길동", birth: "2020.02.22", order: "5", date:"30일 남았습니다.", pay: "주야간보호"  },
+                            { no: "11", name: "홍길동", birth: "2020.02.22", order: "5", date:"30일 남았습니다.", pay: "주야간보호"  },
+                            { no: "12", name: "홍길동", birth: "2020.02.22", order: "5", date:"30일 남았습니다.", pay: "주야간보호"  },
+                            { no: "13", name: "홍길동", birth: "2020.02.22", order: "5", date:"30일 남았습니다.", pay: "주야간보호"  },
+                            { no: "14", name: "홍길동", birth: "2020.02.22", order: "5", date:"30일 남았습니다.", pay: "주야간보호"  },
+                            { no: "15", name: "홍길동", birth: "2020.02.22", order: "5", date:"30일 남았습니다.", pay: "주야간보호"  },
+                            { no: "16", name: "홍길동", birth: "2020.02.22", order: "5", date:"30일 남았습니다.", pay: "주야간보호"  },
+                            { no: "17", name: "홍길동", birth: "2020.02.22", order: "5", date:"30일 남았습니다.", pay: "주야간보호"  },
+                            { no: "18", name: "홍길동", birth: "2020.02.22", order: "5", date:"30일 남았습니다.", pay: "주야간보호"  },
+                            { no: "19", name: "홍길동", birth: "2020.02.22", order: "5", date:"30일 남았습니다.", pay: "주야간보호"  },
+                            { no: "20", name: "홍길동", birth: "2020.02.22", order: "5", date:"30일 남았습니다.", pay: "주야간보호"  },
+                            { no: "7", name: "홍길동", birth: "2020.02.22", order: "5", date:"30일 남았습니다.", pay: "주야간보호"  },
+                            { no: "8", name: "홍길동", birth: "2020.02.22", order: "5", date:"30일 남았습니다.", pay: "주야간보호"  },
+                            { no: "9", name: "홍길동", birth: "2020.02.22", order: "5", date:"30일 남았습니다.", pay: "주야간보호"  },
+                            { no: "10", name: "홍길동", birth: "2020.02.22", order: "5", date:"30일 남았습니다.", pay: "주야간보호"  },
+                            { no: "11", name: "홍길동", birth: "2020.02.22", order: "5", date:"30일 남았습니다.", pay: "주야간보호"  },
+                            { no: "12", name: "홍길동", birth: "2020.02.22", order: "5", date:"30일 남았습니다.", pay: "주야간보호"  },
+                            { no: "13", name: "홍길동", birth: "2020.02.22", order: "5", date:"30일 남았습니다.", pay: "주야간보호"  },
+                            { no: "14", name: "홍길동", birth: "2020.02.22", order: "5", date:"30일 남았습니다.", pay: "주야간보호"  },
+                            { no: "15", name: "홍길동", birth: "2020.02.22", order: "5", date:"30일 남았습니다.", pay: "주야간보호"  },
+                            { no: "16", name: "홍길동", birth: "2020.02.22", order: "5", date:"30일 남았습니다.", pay: "주야간보호"  },
+                            { no: "17", name: "홍길동", birth: "2020.02.22", order: "5", date:"30일 남았습니다.", pay: "주야간보호"  },
+                            { no: "18", name: "홍길동", birth: "2020.02.22", order: "5", date:"30일 남았습니다.", pay: "주야간보호"  },
+                            { no: "19", name: "홍길동", birth: "2020.02.22", order: "5", date:"30일 남았습니다.", pay: "주야간보호"  },
+                            { no: "20", name: "홍길동", birth: "2020.02.22", order: "5", date:"30일 남았습니다.", pay: "주야간보호"  },
+                            { no: "21", name: "홍길동", birth: "2020.02.22", order: "5", date:"30일 남았습니다.", pay: "주야간보호"  }
+                        ],
+                        resize: true,
+                        sort: true,
+                        width: 466,
+                        scrollWidth: 466
+                    });
+                });
+            </script>
+            <!-- JUI End -->
+        </div>
+    </div>
+    <div class="wrap_content_info">
+
+        <div class="content_info" id="content_tab_1">
+            <!-- 타이틀 -->
+            <div class="wrap_content_info_title clearfix">
+                <div class="content_info_title_selected"><a href="#" class="content_tab_1">고객 정보</a></div>
+                <div class="content_info_title"><a href="#" class="content_tab_2">서비스 정보</a></div>
+                <div class="content_info_button">
+                    <ul class="button_basic">
+                        <li class="button_icon">
+                            <a href="#"><img src="img/btn_copy.png" alt=""></a>
+                            <span class="tooltiptext">회원복사</span>
+                        </li>                        
+                        <li class="button_icon">
+                            <a href="#"><img src="img/btn_download.png" alt=""></a>
+                            <span class="tooltiptext">엑셀다운</span>
+                        </li>                        
+                        <li class="button_icon">
+                            <a href="#"><img src="img/btn_member_add.png" alt=""></a>
+                            <span class="tooltiptext">회원추가</span>
+                        </li>                      
+                        <li><button type="button" class="btn_cancel">계약해지</button></li>                        
+                        <li><button type="button" class="btn_cancel">취소</button></li>                        
+                        <li><button type="button" class="btn_confirm">저장</button></li>  
+                    </ul>
+                </div>
+            </div>
+
+            <!-- 내용 Start -->
+            <div class="content_info_detail clearfix">
+                <div class="content_info_detail_left">
+                    <div class="theme">고객 기본정보</div>
+                    <div>
+                        <table class="tbl_basic">
+                            <tr>
+                                <th>이름<span class="star">*</span></th>
+                                <td>
+                                    <input type="text" class="input_default" value="홍길동"> 
+                                    <select class="select_default">
+                                        <option selected>성별</option>
+                                        <option>남성</option>
+                                        <option>여성</option>
+                                    </select>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>고객번호</th>
+                                <td><input type="text" class="input_default" value="0000" readonly></td>
+                            </tr>
+                            <tr>
+                                <th>생일<span class="star">*</span></th>
+                                <td>
+                                    <input type="text" class="input_default" value="2020-01-22"><button type="button" class="btn_tp_1">중복확인</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>핸드폰</th>
+                                <td><input type="text" class="input_default" value="010-1111-2222"></td>
+                            </tr>
+                            <tr>
+                                <th>전화번호</th>
+                                <td><input type="text" class="input_default" value="02-1111-2222"></td>
+                            </tr>
+                            <tr>
+                                <th>고객구분</th>
+                                <td>
+                                    <select class="select_default">
+                                        <option selected>고객구분 선택</option>
+                                        <option>장기요양보험대상자</option>
+                                        <option>일반인</option>
+                                    </select>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>가상계좌</th>
+                                <td>
+                                    <select class="select_default">
+                                        <option selected>은행선택</option>
+                                        <option>농협</option>
+                                        <option>산업은행</option>
+                                        <option>우리</option>
+                                        <option>제일</option>
+                                        <option>대우증권</option>
+                                        <option>시티</option>
+                                        <option>기업</option>
+                                        <option>대구은행</option>
+                                        <option>부산은행</option>
+                                        <option>전북은행</option>
+                                        <option>경남은행</option>
+                                        <option>국민</option>
+                                        <option>새마을금고</option>
+                                        <option>신협</option>
+                                        <option>외환</option>
+                                        <option>솔로몬저축</option>
+                                        <option>HSBC</option>
+                                        <option>수협</option>
+                                        <option>우체국</option>
+                                        <option>하나</option>
+                                        <option>신한</option>
+                                    </select>
+                                    <input type="text" class="input_default" value="0000-1111-2222" readonly>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>현금영수증</th>
+                                <td><input type="text" class="input_default" value="0000-1111-2222"></td>
+                            </tr>
+                            <tr>
+                                <th>지로번호</th>
+                                <td><input type="text" class="input_default" value="000000000"></td>
+                            </tr>
+                            <tr>
+                                <th>주요질환</th>
+                                <td><input type="text" class="input_default" style="width:80%;" value="주요질환 텍스트 입력"></td>
+                            </tr>
+                            <tr>
+                                <th>주소</th>
+                                <td>
+                                    <input type="text" class="input_default" style="width:60px" readonly value="12345"><button type="button" class="btn_tp_1">우편번호</button><br>
+                                    <div style="padding-top:7px;"><input type="text" class="input_default" style="width:260px" readonly value="경기도 성남시 분당구 대왕판교로 645번길">
+                                    <input type="text" class="input_default" style="width:260px" value="14 (삼평동, 네오위즈 판교타워)"></div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>지로 주소</th>
+                                <td>
+                                    <input type="text" class="input_default" style="width:60px" readonly value="12345"><button type="button" class="btn_tp_1">우편번호</button><br>
+                                    <div style="padding-top:7px;"><input type="text" class="input_default" style="width:260px" readonly value="경기도 성남시 분당구 대왕판교로 645번길">
+                                    <input type="text" class="input_default" style="width:260px" value="14 (삼평동, 네오위즈 판교타워)"></div>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+
+
+
+
+
+
+                <div class="content_info_detail_right">
+                    <div class="theme">보호자</div>
+                    <div>
+                        <table class="tbl_basic">
+                            <tr>
+                                <th>보호자명<span class="star">*</span></th>
+                                <td>
+                                    <input type="text" class="input_default" value="홍길순"> 
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>관계<span class="star">*</span></th>
+                                <td>
+                                    <select class="select_default">
+                                        <option selected>관계 선택</option>
+                                        <option>아들</option>
+                                        <option>딸</option>
+                                        <option>어머니</option>
+                                        <option>아버지</option>
+                                        <option>친구</option>
+                                        <option>기타</option>
+                                    </select>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>생일<span class="star">*</span></th>
+                                <td>
+                                    <input type="text" class="input_default" value="2020-01-22">
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>이메일</th>
+                                <td>
+                                    <input type="text" class="input_default" style="width:250px;" value="abcdef@naver.com">
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>핸드폰<span class="star">*</span></th>
+                                <td>
+                                    <input type="text" class="input_default" value="010-1111-2222">
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>전화번호</th>
+                                <td>
+                                    <input type="text" class="input_default" value="02-1111-2222">
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>주소</th>
+                                <td>
+                                    <input type="text" class="input_default" style="width:60px" readonly value="12345"><button type="button" class="btn_tp_1">우편번호</button><br>
+                                    <div style="padding-top:7px;"><input type="text" class="input_default" style="width:260px" readonly value="경기도 성남시 분당구 대왕판교로 645번길">
+                                    <input type="text" class="input_default" style="width:260px" value="14 (삼평동, 네오위즈 판교타워)"></div>
+                                </td>
+                            </tr>
+                            
+                        </table>
+                    </div>
+
+
+
+                    <div class="theme" style="margin-top:28px;">장기요양 정보</div>
+                    <div>
+                        <table class="tbl_basic">
+                            <tr>
+                                <th>요양안정번호</th>
+                                <td>
+                                    <input type="text" class="input_default" value="L000000" readonly> -
+                                    <input type="text" class="input_default" value="000" readonly>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>안정유효기간<span class="star">*</span></th>
+                                <td>
+                                    <input type="text" class="input_default" style="width:100px" readonly value="2020-01-01"><button type="button" class="btn_tp_1">달력</button>
+                                    ~ 
+                                    <input type="text" class="input_default" style="width:100px" readonly value="2020-01-31"><button type="button" class="btn_tp_1">달력</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>장기요양등급<span class="star">*</span></th>
+                                <td>
+                                    <select class="select_default">
+                                        <option selected>장기요양등급 선택</option>
+                                        <option>1등급</option>
+                                        <option>2등급</option>
+                                        <option>3등급</option>
+                                        <option>4등급</option>
+                                        <option>5등급</option>
+                                        <option>등급외</option>
+                                        <option>인지지원</option>
+                                    </select>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>월한도액</th>
+                                <td>
+                                    <input type="text" class="input_default" value="1000.000" readonly>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>경감구분</th>
+                                <td>
+                                    <select class="select_default">
+                                        <option selected>경감구분 선택</option>
+                                        <option>일반</option>
+                                        <option>기초생활수급권자</option>
+                                        <option>의료/경감대상자</option>
+                                    </select>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>적용요율</th>
+                                <td>
+                                    <select class="select_default">
+                                        <option selected>적용요율 선택</option>
+                                        <option>0</option>
+                                        <option>6</option>
+                                        <option>7.5</option>
+                                        <option>9</option>
+                                        <option>15</option>
+                                        <option>100</option>
+                                        <option>20</option>
+                                    </select>
+                                    &nbsp;%
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>급여종류</th>
+                                <td>
+                                    <label class="wrap_checkbox">주야간보호
+                                        <input type="checkbox" checked="checked">
+                                        <span class="checkmark"></span>
+                                    </label>
+                                    <label class="wrap_checkbox">방문요양
+                                        <input type="checkbox">
+                                        <span class="checkmark"></span>
+                                    </label>
+                                    <label class="wrap_checkbox">방문목욕
+                                        <input type="checkbox">
+                                        <span class="checkmark"></span>
+                                    </label>
+                                </td>
+                            </tr>
+                            
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <!-- 내용 End -->
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <!-- 서비스 정보 Start -->
+        <div class="content_info" id="content_tab_2">
+            <!-- 타이틀 -->
+            <div class="wrap_content_info_title clearfix">
+                <div class="content_info_title"><a href="#" class="content_tab_1">고객정보</a></div>
+                <div class="content_info_title_selected"><a href="#" class="content_tab_1">서비스 정보</a></div>
+                <div class="content_info_button">
+                    <ul class="button_basic">
+                        <li class="button_icon">
+                            <a href="#"><img src="img/btn_copy.png" alt=""></a>
+                            <span class="tooltiptext">회원복사</span>
+                        </li>                        
+                        <li class="button_icon">
+                            <a href="#"><img src="img/btn_download.png" alt=""></a>
+                            <span class="tooltiptext">엑셀다운</span>
+                        </li>                        
+                        <li class="button_icon">
+                            <a href="#"><img src="img/btn_member_add.png" alt=""></a>
+                            <span class="tooltiptext">회원추가</span>
+                        </li>                      
+                        <li><button type="button" class="btn_cancel">계약해지</button></li>                        
+                        <li><button type="button" class="btn_cancel">취소</button></li>                        
+                        <li><button type="button" class="btn_confirm">저장</button></li>  
+                    </ul>
+                </div>
+            </div>
+
+            <!-- 내용 Start -->
+            <div class="content_info_detail clearfix">서비스 정보 소개</div>
+            <!-- 내용 End -->
+        </div>
+        <!-- 서비스 정보 End -->
+
+
+    </div>
+    
+</div>
+<!-- CONTENTS End -->
+
+
+
+
+
+<!-- COPYRIGHT Start -->
+<div class="wrap_copyright">
+    
+    <div class="copyright_logo">
+        <img src="img/logo_longlife.png" alt="">
+    </div>
+    
+    
+    <div class="copyright_companyinfo">
+        Copyright © 2016 롱라이프그린케어(주) inc. All right reserved.
+    </div>
+    
+</div>
+<!-- COPYRIGHT End -->
+
+
+
+
+
+
+
+</div>
+</body>
+</html>

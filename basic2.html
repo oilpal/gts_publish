@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <title>GTS-로그인</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="custom.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+
+
+  <link rel="stylesheet" href="framework/jui-grid-master/jui-grid.classic.css" />
+  <script src="https://cdn.jsdelivr.net/npm/juijs@2.2.1-es6/dist/jui-core.js"></script>
+  <script src="framework/jui-grid-master/jui-grid.js"></script>
+
+
+
+
+  <script>
+    var table_data = [
+        {"min":1,"max":21.55,"count":1,"sumCpu":0,"hash":1495461794,"sd":0,"tpmc":0,"avgCpu":0,"failure":1,"rate":77.66,"sumTime":21.55,"name":"/db2sql.jsp","avgTime":21.55,"success":0},
+        {"min":0.001,"max":0.035,"count":11,"sumCpu":0,"hash":-758408983,"sd":0.01,"tpmc":0,"avgCpu":0,"failure":11,"rate":0.187,"sumTime":0.052,"name":"/ignoresqlexp.jsp","avgTime":0.005,"success":0},
+        {"min":0.001,"max":0.035,"count":11,"sumCpu":0,"hash":-758408983,"sd":0.01,"tpmc":0,"avgCpu":0,"failure":11,"rate":0.187,"sumTime":0.052,"name":"/ignoresqlexp.jsp","avgTime":0.005,"success":0},
+        {"min":0.001,"max":0.035,"count":11,"sumCpu":0,"hash":-758408983,"sd":0.01,"tpmc":0,"avgCpu":0,"failure":11,"rate":0.187,"sumTime":0.052,"name":"/ignoresqlexp.jsp","avgTime":0.005,"success":0},
+        {"min":0.001,"max":0.035,"count":11,"sumCpu":0,"hash":-758408983,"sd":0.01,"tpmc":0,"avgCpu":0,"failure":11,"rate":0.187,"sumTime":0.052,"name":"/ignoresqlexp.jsp","avgTime":0.005,"success":0},
+        {"min":0.001,"max":0.035,"count":11,"sumCpu":0,"hash":-758408983,"sd":0.01,"tpmc":0,"avgCpu":0,"failure":11,"rate":0.187,"sumTime":0.052,"name":"/ignoresqlexp.jsp","avgTime":0.005,"success":0},
+        {"min":0.001,"max":0.035,"count":11,"sumCpu":0,"hash":-758408983,"sd":0.01,"tpmc":0,"avgCpu":0,"failure":11,"rate":0.187,"sumTime":0.052,"name":"/ignoresqlexp.jsp","avgTime":0.005,"success":0},
+        {"min":0.001,"max":0.035,"count":11,"sumCpu":0,"hash":-758408983,"sd":0.01,"tpmc":0,"avgCpu":0,"failure":11,"rate":0.187,"sumTime":0.052,"name":"/ignoresqlexp.jsp","avgTime":0.005,"success":0},
+        {"min":0.014,"max":0.014,"count":1,"sumCpu":0,"hash":1887438955,"sd":0,"tpmc":0,"avgCpu":0,"failure":1,"rate":0.05,"sumTime":0.014,"name":"/oraclesql3.jsp","avgTime":0.014,"success":0}
+    ];
+    
+    for(var i = 0; i < 200; i++) {
+        table_data.push({"min":0.014,"max":0.014,"count":1,"sumCpu":0,"hash":1887438955,"sd":0,"tpmc":0,"avgCpu":0,"failure":1,"rate":0.05,"sumTime":0.014,"name":"/oraclesql3.jsp","avgTime":0.014,"success":0});
+    }
+    
+    jui.ready([ "util.base", "grid.xtable" ], function(_, xtableUI) {
+        var xtable = xtableUI("#xtable", {
+            // fields: [ "min", "max", "count", "hash", "failure", "sumTime", "avgTime", "name" ],
+            fields: [ "min", "max", "count", "hash", "failure", "sumTime" ],
+            csvNumber: [ 0, 1, 2, 3, 4, 5, "avgTime" ],
+            msort: true,
+            sortEvent: true,
+            sortLoading: true,
+            sortCache: true,
+            //width: body_width + body_width * 0.15,
+            //scrollWidth: body_width,
+            buffer: "scroll",
+            bufferCount: 10,
+            expand: true,
+            resize: true,
+            colshow: [ 0, 1, 2, 4, 6, 7 ],
+    //        xssFilter: [ "min" ],
+            event: {
+                msort: function(column, e) {
+                    console.log(column)
+                },
+                msortend: function() {
+    //                alert("multisortend");
+                },
+                colmenu: function(column, e) {
+                    this.toggleColumnMenu(e.pageX - 25);
+                },
+                colresize: function() {
+                    console.log("resize");
+                },
+                select: function(row, e) {
+                    //console.log(row);
+                }
+            },
+            tpl : {
+                expand: "<div></div>"
+            }
+        });
+    
+        xtable.update(table_data);
+    
+        _.resize(function() {
+            xtable.scrollWidth($("body").width(), true);
+        });
+    });
+    
+    </script>
+
+
+
+
+</head>
+<body class="jui">
+  
+<div class="container-fluid">
+
+<!-- 상단메뉴 Start-->
+<div class="wrap_nav">
+    <ul class="nav">
+        <li class="sw_submenu"><img src="img/icon_sw_submenu.png" alt=""></li>
+        <li class="logo"><a href="">GTS</a></li>
+        <li><a href="#">고객관리</a></li>
+        <li><a href="#">일정관리</a></li>
+        <li><a href="#">정산관리</a></li>
+        <li><a href="#">직원관리</a></li>
+        <li><a href="#">센터관리</a></li>
+        <li class="app">
+            <ul>
+                <li class="app_deadline"><span>마감일이 <b>20일</b> 남았습니다</span></li>
+                <li class="app_bell"><a href=""><img src="img/icon_app_bell_off.png" alt=""></a>
+                </li>
+                <li class="app_mypage"><a href=""><img src="img/icon_app_mypage.png" alt=""></a></li>
+            </ul>
+
+        </li>
+    </ul>
+
+
+
+</div>
+<!-- 상단메뉴 End-->
+
+
+<!-- TAB 메뉴 Start -->
+<div class="wrap_tabmenu">
+    <ul class="tabmenu">
+        <li><a href="#">고객관리</a><span>x</span></li>
+        <li class="tabmenu_selected"><a href="#">일정관리</a><span>x</span></li>
+        <li><a href="#">정산관리</a><span>x</span></li>
+        <li><a href="#">직원관리</a><span>x</span></li>
+        <li><a href="#">센터관리</a><span>x</span></li>
+    </ul>
+</div>
+<!-- TAB 메뉴 End -->
+
+
+
+
+<!-- 컨텐츠 Start -->
+<div style="height:107px;"></div>
+<div class="wrap_content">
+    <div class="content_list">
+
+
+
+        <div style="height:100px;"></div>
+        <div id="xtable" class="xtable scroll">
+            <table class="table simple small hover">
+                <thead>
+                <tr>
+                    <th>No</th>
+                    <th>고객명</th>
+                    <th>생일</th>
+                    <th>차수</th>
+                    <th>안정유효잔여기간</th>
+                    <th>급여종류</th>
+                </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>    
+        
+        <script data-jui="#xtable" data-tpl="menu" type="text/template">
+            <div class="dropdown">
+                <div class="anchor"></div>
+        
+                <ul style="width: 150px">
+                    <! for(var i = 0; i < columns.length; i++) { !>
+                    <li>
+                        <input type="checkbox" />  <!= columns[i] !>
+                    </li>
+                    <! } !>
+                </ul>
+            </div>
+        </script>
+
+
+        <script data-jui="#xtable" data-tpl="row" type="text/template">
+            <tr>
+                <td><!= min !></td>
+                <td><!= max !></td>
+                <td><!= count !></td>
+                <td><!= hash !></td>
+                <td><!= failure !></td>
+                <td><!= sumTime !></td>
+            </tr>
+        </script>
+        
+        <script data-jui="#xtable" data-tpl="loading" type="text/template">
+            <div class="loading"></div>
+        </script>
+        
+        <script data-jui="#xtable" data-tpl="none" type="text/template">
+            <tr>
+                <td colspan="6" class="none" align="center">Data does not exist.</td>
+            </tr>
+        </script>
+
+
+    </div>
+
+    <div class="content_info">
+        <div class="wrap_content_2"></div>
+    </div>
+</div>
+
+<!-- 컨텐츠 End -->
+
+
+
+
+ 
+
+
+
+</div>
+</body>
+</html>
